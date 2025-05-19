@@ -1,0 +1,23 @@
+{
+    "mascotas": {
+        "1": {
+            "id_mascota": 1,
+            "nombre": "Lizz",
+            "especie": "Border Collie",
+            "raza": "Negro",
+            "edad": 5,
+            "propietario": "Mateus"
+        },
+        "2": {
+            "id_mascota": 2,
+            "nombre": "Thor",
+            "especie": "Gato",
+            "raza": "Naranja",
+            "edad": 1,
+            "propietario": "Miguel"
+        }
+    },
+    "citas": [],
+    "next_mascota_id": 3,
+    "next_cita_id": 1
+}

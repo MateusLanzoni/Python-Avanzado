@@ -1,0 +1,48 @@
+2025-05-19 17:03:53,038 - ClinicaVeterinariaApp - INFO - Logging configurado. La aplicación de la clínica veterinaria ha iniciado.
+2025-05-19 17:03:53,038 - ClinicaVeterinariaApp - INFO - Función main iniciada.
+2025-05-19 17:03:53,038 - ClinicaVeterinariaApp - DEBUG - Intentando cargar datos desde datos_clinica.json
+2025-05-19 17:03:53,038 - ClinicaVeterinariaApp - WARNING - Archivo de datos datos_clinica.json no encontrado. Se iniciará con datos vacíos.
+2025-05-19 17:03:53,038 - ClinicaVeterinariaApp - INFO - Sistema de Clínica inicializado.
+2025-05-19 17:04:16,725 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 1
+2025-05-19 17:04:41,228 - ClinicaVeterinariaApp - DEBUG - Intentando agregar mascota: Lizz, Border Collie, 5
+2025-05-19 17:04:41,229 - ClinicaVeterinariaApp - INFO - Mascota creada: ID 1, Nombre: Lizz
+2025-05-19 17:04:41,229 - ClinicaVeterinariaApp - INFO - Mascota 'Lizz' con ID 1 agregada exitosamente.
+2025-05-19 17:04:41,229 - ClinicaVeterinariaApp - DEBUG - Intentando guardar datos en datos_clinica.json
+2025-05-19 17:04:41,229 - ClinicaVeterinariaApp - INFO - Datos guardados exitosamente en datos_clinica.json
+2025-05-19 17:04:51,853 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 1
+2025-05-19 17:05:18,220 - ClinicaVeterinariaApp - DEBUG - Intentando agregar mascota: Thor, Gato, 1
+2025-05-19 17:05:18,220 - ClinicaVeterinariaApp - INFO - Mascota creada: ID 2, Nombre: Thor
+2025-05-19 17:05:18,220 - ClinicaVeterinariaApp - INFO - Mascota 'Thor' con ID 2 agregada exitosamente.
+2025-05-19 17:05:18,220 - ClinicaVeterinariaApp - DEBUG - Intentando guardar datos en datos_clinica.json
+2025-05-19 17:05:18,222 - ClinicaVeterinariaApp - INFO - Datos guardados exitosamente en datos_clinica.json
+2025-05-19 17:05:21,332 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 2
+2025-05-19 17:05:23,133 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 2
+2025-05-19 17:05:23,133 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Thor
+2025-05-19 17:05:36,084 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 3
+2025-05-19 17:05:36,084 - ClinicaVeterinariaApp - INFO - Listando todas las mascotas.
+2025-05-19 17:05:43,085 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 4
+2025-05-19 17:05:46,555 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 1
+2025-05-19 17:05:46,556 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Lizz
+2025-05-19 17:06:24,940 - ClinicaVeterinariaApp - DEBUG - Intentando agendar cita para mascota ID 1 en 2024-05-01 14:00
+2025-05-19 17:06:24,940 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 1
+2025-05-19 17:06:24,940 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Lizz
+2025-05-19 17:06:24,950 - ClinicaVeterinariaApp - WARNING - Intento de agendar cita en el pasado: 2024-05-01 14:00
+2025-05-19 17:06:45,381 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 4
+2025-05-19 17:06:47,251 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 4
+2025-05-19 17:06:47,251 - ClinicaVeterinariaApp - WARNING - No se encontró mascota con ID: 4
+2025-05-19 17:06:47,251 - ClinicaVeterinariaApp - WARNING - Intento de agendar cita para mascota ID 4 que no existe (verificación temprana).
+2025-05-19 17:06:52,492 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 4
+2025-05-19 17:06:55,660 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 2
+2025-05-19 17:06:55,660 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Thor
+2025-05-19 17:07:12,924 - ClinicaVeterinariaApp - DEBUG - Intentando agendar cita para mascota ID 2 en 2025-05-01 14:00
+2025-05-19 17:07:12,924 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 2
+2025-05-19 17:07:12,924 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Thor
+2025-05-19 17:07:12,924 - ClinicaVeterinariaApp - WARNING - Intento de agendar cita en el pasado: 2025-05-01 14:00
+2025-05-19 17:07:17,475 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 5
+2025-05-19 17:07:17,475 - ClinicaVeterinariaApp - INFO - Listando todas las citas.
+2025-05-19 17:07:17,475 - ClinicaVeterinariaApp - INFO - No hay citas para listar.
+2025-05-19 17:07:41,731 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 6
+2025-05-19 17:07:41,731 - ClinicaVeterinariaApp - INFO - Usuario seleccionó salir. La aplicación terminará.
+2025-05-19 17:07:41,731 - ClinicaVeterinariaApp - DEBUG - Intentando guardar datos en datos_clinica.json
+2025-05-19 17:07:41,732 - ClinicaVeterinariaApp - INFO - Datos guardados exitosamente en datos_clinica.json
+2025-05-19 17:07:41,732 - ClinicaVeterinariaApp - INFO - Aplicación de la clínica veterinaria ha finalizado.
