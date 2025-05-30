@@ -1,0 +1,24 @@
+{
+    "mascotas": {
+        "1": {
+            "id_mascota": 1,
+            "nombre": "Thor",
+            "especie": "Perro",
+            "raza": "Border Collie",
+            "edad": 2,
+            "propietario": "Mateus"
+        }
+    },
+    "citas": [
+        {
+            "id_cita": 1,
+            "id_mascota": 1,
+            "nombre_mascota": "Thor",
+            "fecha_hora": "2025-05-22 10:30",
+            "motivo": "Revision General",
+            "estado": "programada"
+        }
+    ],
+    "next_mascota_id": 2,
+    "next_cita_id": 2
+}

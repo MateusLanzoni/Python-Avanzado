@@ -1,0 +1,29 @@
+2025-05-19 17:34:07,132 - ClinicaVeterinariaApp - INFO - Logging configurado. La aplicación de la clínica veterinaria ha iniciado.
+2025-05-19 17:34:07,132 - ClinicaVeterinariaApp - INFO - Función main iniciada.
+2025-05-19 17:34:07,132 - ClinicaVeterinariaApp - DEBUG - Intentando cargar datos desde datos_clinica.json
+2025-05-19 17:34:07,132 - ClinicaVeterinariaApp - WARNING - Archivo de datos datos_clinica.json no encontrado. Se iniciará con datos vacíos.
+2025-05-19 17:34:07,132 - ClinicaVeterinariaApp - INFO - Sistema de Clínica inicializado.
+2025-05-19 17:34:18,820 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 4
+2025-05-19 17:34:22,076 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 2
+2025-05-19 17:34:22,076 - ClinicaVeterinariaApp - WARNING - No se encontró mascota con ID: 2
+2025-05-19 17:34:22,077 - ClinicaVeterinariaApp - WARNING - Intento de agendar cita para mascota ID 2 que no existe (verificación temprana).
+2025-05-19 17:34:33,700 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 2
+2025-05-19 17:34:35,620 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 1
+2025-05-19 17:34:35,621 - ClinicaVeterinariaApp - WARNING - No se encontró mascota con ID: 1
+2025-05-19 17:34:42,444 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 1
+2025-05-19 17:34:56,980 - ClinicaVeterinariaApp - DEBUG - Intentando agregar mascota: Thor, Perro, 2
+2025-05-19 17:34:56,980 - ClinicaVeterinariaApp - INFO - Mascota creada: ID 1, Nombre: Thor
+2025-05-19 17:34:56,980 - ClinicaVeterinariaApp - INFO - Mascota 'Thor' con ID 1 agregada exitosamente.
+2025-05-19 17:34:56,980 - ClinicaVeterinariaApp - DEBUG - Intentando guardar datos en datos_clinica.json
+2025-05-19 17:34:56,981 - ClinicaVeterinariaApp - INFO - Datos guardados exitosamente en datos_clinica.json
+2025-05-19 17:35:15,427 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 4
+2025-05-19 17:35:18,140 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 1
+2025-05-19 17:35:18,140 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Thor
+2025-05-19 17:35:27,547 - ClinicaVeterinariaApp - DEBUG - Intentando agendar cita para mascota ID 1 en 2025-05-22 10:30
+2025-05-19 17:35:27,547 - ClinicaVeterinariaApp - DEBUG - Buscando mascota con ID: 1
+2025-05-19 17:35:27,547 - ClinicaVeterinariaApp - INFO - Mascota encontrada: Thor
+2025-05-19 17:35:27,553 - ClinicaVeterinariaApp - INFO - Cita agendada exitosamente: ID 1 para mascota ID 1 el 2025-05-22 10:30
+2025-05-19 17:35:27,553 - ClinicaVeterinariaApp - DEBUG - Intentando guardar datos en datos_clinica.json
+2025-05-19 17:35:27,554 - ClinicaVeterinariaApp - INFO - Datos guardados exitosamente en datos_clinica.json
+2025-05-19 17:35:39,092 - ClinicaVeterinariaApp - DEBUG - Usuario seleccionó la opción: 5
+2025-05-19 17:35:39,092 - ClinicaVeterinariaApp - INFO - Listando todas las citas.
