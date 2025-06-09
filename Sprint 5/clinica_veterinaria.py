@@ -1,4 +1,4 @@
-# clinica_veterinaria.py
+# veterinaria.py
 import logging
 import datetime
 import json # Para simular una base de datos guardando y cargando en formato JSON
