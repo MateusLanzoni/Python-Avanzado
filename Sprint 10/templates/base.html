@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clínica Veterinaria</title>
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Clínica Veterinaria</h1>
+        <nav>
+            <a href="/">Inicio</a> |
+            <a href="/servicios/">Servicios</a> |
+            <a href="/dinamico/">Contenido Dinámico</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

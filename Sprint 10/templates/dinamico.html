@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Dueños Registrados</h2>
+<ul>
+    {% for d in duenos %}
+        <li>{{ d.1 }} | {{ d.2 }} | {{ d.3 }}</li>
+    {% empty %}
+        <li>No hay dueños registrados.</li>
+    {% endfor %}
+</ul>
+
+<h2>Mascotas Registradas</h2>
+<ul>
+    {% for m in mascotas %}
+        <li>{{ m.1 }} ({{ m.2 }}) - Edad: {{ m.3 }}</li>
+    {% empty %}
+        <li>No hay mascotas registradas.</li>
+    {% endfor %}
+</ul>
+
+<h2>Consultas Realizadas</h2>
+<ul>
+    {% for c in consultas %}
+        <li>{{ c.1 }} | {{ c.2 }} | Diagnóstico: {{ c.3 }} | Mascota: {{ c.4 }}</li>
+    {% empty %}
+        <li>No hay consultas registradas.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
