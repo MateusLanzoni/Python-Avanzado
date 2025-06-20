@@ -1,0 +1,135 @@
+2025-06-20 12:04:02,007 - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py", line 5, in home
+    return render(request, 'home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+2025-06-20 12:04:06,903 - WARNING - Not Found: /favicon.ico
+2025-06-20 12:04:39,694 - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py", line 5, in home
+    return render(request, 'home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+2025-06-20 12:04:42,777 - WARNING - Not Found: /favicon.ico
+2025-06-20 12:07:11,508 - ERROR - Internal Server Error: /servicios/
+Traceback (most recent call last):
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py", line 8, in servicios
+    return render(request, 'servicios.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: servicios.html
+2025-06-20 12:07:14,170 - WARNING - Not Found: /favicon.ico
+2025-06-20 12:10:16,655 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\veterinaria_web\settings.py changed, reloading.
+2025-06-20 12:10:29,414 - ERROR - Internal Server Error: /dinamico/
+Traceback (most recent call last):
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py", line 11, in dinamico
+    duenos = db_api.mostrar_duenos()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py", line 79, in mostrar_duenos
+    cursor.execute("SELECT * FROM duenos")
+sqlite3.OperationalError: no such table: duenos
+2025-06-20 12:17:06,240 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py changed, reloading.
+2025-06-20 12:17:08,406 - ERROR - Internal Server Error: /dinamico/
+Traceback (most recent call last):
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py", line 11, in dinamico
+    duenos = db_api.mostrar_duenos()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py", line 79, in mostrar_duenos
+    cursor.execute("SELECT * FROM duenos")
+sqlite3.OperationalError: no such table: duenos
+2025-06-20 12:17:09,572 - ERROR - Internal Server Error: /dinamico/
+Traceback (most recent call last):
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py", line 11, in dinamico
+    duenos = db_api.mostrar_duenos()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py", line 79, in mostrar_duenos
+    cursor.execute("SELECT * FROM duenos")
+sqlite3.OperationalError: no such table: duenos
+2025-06-20 12:17:37,931 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\views.py changed, reloading.
+2025-06-20 12:22:14,213 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\apps.py changed, reloading.
+2025-06-20 12:22:14,789 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:22:14,815 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:23:39,388 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\apps.py changed, reloading.
+2025-06-20 12:23:40,091 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:23:40,119 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:23:56,642 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\veterinaria_web\settings.py changed, reloading.
+2025-06-20 12:23:57,216 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:23:57,240 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:24:56,497 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py changed, reloading.
+2025-06-20 12:24:57,034 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:24:57,058 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:25:09,517 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py changed, reloading.
+2025-06-20 12:25:10,020 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:25:10,043 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:25:32,677 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py changed, reloading.
+2025-06-20 12:25:33,271 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:25:33,296 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:28:01,054 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py changed, reloading.
+2025-06-20 12:28:01,762 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:28:57,013 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:30:35,530 - INFO - C:\Users\pauli\PyCharmMiscProject\Python-Avanzado\Sprint 10\core\db_api.py changed, reloading.
+2025-06-20 12:30:36,039 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:30:36,067 - INFO - Watching for file changes with StatReloader
+2025-06-20 12:30:54,707 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:30:55,117 - INFO - Base de datos y tablas creadas.
+2025-06-20 12:30:55,139 - INFO - Watching for file changes with StatReloader

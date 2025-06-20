@@ -1,6 +1,12 @@
 import sqlite3
 import logging
-from datetime import datetime
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DB_PATH  = BASE_DIR / "clinica_veterinaria.db"
+
+def _connect():
+    return sqlite3.connect(DB_PATH)
 
 # Configurar logging
 logging.basicConfig(
@@ -11,7 +17,7 @@ logging.basicConfig(
 
 # Inicializar base de datos y tablas
 def inicializar_base_datos():
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -49,7 +55,7 @@ def inicializar_base_datos():
 
 # CRUD - Insertar
 def insertar_dueno(nombre, direccion, telefono):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute('INSERT INTO duenos (nombre, direccion, telefono) VALUES (?, ?, ?)',
                    (nombre, direccion, telefono))
@@ -57,7 +63,7 @@ def insertar_dueno(nombre, direccion, telefono):
     conn.close()
 
 def insertar_mascota(nombre, especie, edad, id_dueno):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute('INSERT INTO mascotas (nombre, especie, edad, id_dueno) VALUES (?, ?, ?, ?)',
                    (nombre, especie, edad, id_dueno))
@@ -65,7 +71,7 @@ def insertar_mascota(nombre, especie, edad, id_dueno):
     conn.close()
 
 def insertar_consulta(fecha, motivo, diagnostico, id_mascota):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute('INSERT INTO consultas (fecha, motivo, diagnostico, id_mascota) VALUES (?, ?, ?, ?)',
                    (fecha, motivo, diagnostico, id_mascota))
@@ -74,7 +80,7 @@ def insertar_consulta(fecha, motivo, diagnostico, id_mascota):
 
 # CRUD - Mostrar
 def mostrar_duenos():
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM duenos")
     duenos = cursor.fetchall()
@@ -82,7 +88,7 @@ def mostrar_duenos():
     return duenos
 
 def mostrar_mascotas():
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM mascotas")
     mascotas = cursor.fetchall()
@@ -90,7 +96,7 @@ def mostrar_mascotas():
     return mascotas
 
 def mostrar_consultas():
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute('''
         SELECT c.id, c.fecha, c.motivo, c.diagnostico, m.nombre AS mascota
@@ -103,7 +109,7 @@ def mostrar_consultas():
 
 # CRUD - Actualizar
 def actualizar_dueno(id_dueno, nombre, direccion, telefono):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute('''
         UPDATE duenos
@@ -114,7 +120,7 @@ def actualizar_dueno(id_dueno, nombre, direccion, telefono):
     conn.close()
 
 def actualizar_mascota(id_mascota, nombre, especie, edad):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute('''
         UPDATE mascotas
@@ -126,21 +132,21 @@ def actualizar_mascota(id_mascota, nombre, especie, edad):
 
 # CRUD - Eliminar
 def eliminar_dueno(id_dueno):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM duenos WHERE id = ?", (id_dueno,))
     conn.commit()
     conn.close()
 
 def eliminar_mascota(id_mascota):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM mascotas WHERE id = ?", (id_mascota,))
     conn.commit()
     conn.close()
 
 def eliminar_consulta(id_consulta):
-    conn = sqlite3.connect('clinica_veterinaria.db')
+    conn = _connect()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM consultas WHERE id = ?", (id_consulta,))
     conn.commit()
