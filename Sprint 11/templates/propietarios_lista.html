@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Propietarios</h2>
+
+<a href="{% url 'propietario_crear' %}">+ Nuevo propietario</a>
+
+<ul>
+  {% for p in propietarios %}
+    <li>{{ p.nombre }} — {{ p.telefono }} — {{ p.email }}</li>
+  {% empty %}
+    <li>No hay propietarios registrados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

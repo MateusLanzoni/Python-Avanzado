@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Mascotas</h2>
+
+<a href="{% url 'mascota_crear' %}">+ Nueva mascota</a>
+
+<ul>
+  {% for m in mascotas %}
+    <li>
+      {{ m.nombre }} ({{ m.especie }}, {{ m.edad }} años) —
+      Dueño: {{ m.propietario.nombre }}
+    </li>
+  {% empty %}
+    <li>No hay mascotas registradas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
