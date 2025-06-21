@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Citas</h2>
+<a href="{% url 'cita_crear' %}">+ Nueva cita</a>
+<ul>
+  {% for c in citas %}
+    <li>{{ c.fecha }} {{ c.hora }} — {{ c.mascota.nombre }} ({{ c.mascota.propietario.nombre }}) — {{ c.motivo }}</li>
+  {% empty %}
+    <li>No hay citas registradas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
