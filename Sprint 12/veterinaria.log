@@ -101,3 +101,11 @@ INFO 2025-06-27 14:45:00,604 models 11996 7640 Bitácora de consulta registrada p
 INFO 2025-06-27 14:45:53,025 models 11996 7640 Cirugía programada: Ligamento Cruzado para Kiara Medina Granda
 INFO 2025-06-27 14:49:50,460 models 17772 17376 Medicamento creado: Ivermectina
 INFO 2025-06-27 14:50:58,176 views 17772 17376 Exportación CSV de propietarios realizada
+INFO 2025-06-27 16:14:14,286 views 21644 25500 Propietario creado: Luciana Lanzoni
+INFO 2025-06-27 16:16:02,134 models 21644 25500 Cirugía programada: Ligamento Cruzado para Liz Maria
+INFO 2025-06-27 16:17:32,051 models 21644 25500 Bitácora de consulta registrada para Liz Maria
+INFO 2025-06-27 16:17:51,280 views 21644 25500 Historia clínica generada para mascota: Liz Maria
+INFO 2025-06-27 16:18:04,425 views 21644 25500 Historia clínica generada para mascota: Kiara Medina Granda
+INFO 2025-06-27 16:18:09,607 views 21644 25500 Historia clínica generada para mascota: Liz Maria
+INFO 2025-06-27 16:18:30,179 views 21644 25500 Historia clínica generada para mascota: Kiara Medina Granda
+INFO 2025-06-27 16:18:55,355 views 21644 25500 Exportación CSV de propietarios realizada
