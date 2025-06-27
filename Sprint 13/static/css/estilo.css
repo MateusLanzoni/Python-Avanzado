@@ -1,0 +1,138 @@
+/* Estilos personalizados para la Clínica Veterinaria */
+
+/* Navbar personalizado */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Cards de información */
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+/* Botones personalizados */
+.btn-group .btn {
+    border-radius: 0.25rem;
+    margin: 0 2px;
+}
+
+/* Tablas responsivas */
+.table th {
+    font-weight: 600;
+    background-color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Alerts personalizados */
+.alert {
+    border-radius: 0.5rem;
+    border: none;
+}
+
+/* Badges para estados */
+.badge {
+    font-size: 0.8em;
+}
+
+/* Formularios */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos para historia clínica */
+.border-left-success {
+    border-left: 4px solid #28a745 !important;
+}
+
+.border-left-info {
+    border-left: 4px solid #17a2b8 !important;
+}
+
+.border-left-warning {
+    border-left: 4px solid #ffc107 !important;
+}
+
+/* Iconos */
+.fas, .far {
+    margin-right: 0.5rem;
+}
+
+/* Footer spacing */
+body {
+    padding-bottom: 2rem;
+}
+
+/* Hover effects */
+.btn:hover {
+    transform: translateY(-1px);
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* Home page styling */
+.hero-section {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+}
+
+.feature-box {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.feature-box i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success/Error states */
+.success-highlight {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+}
+
+.error-highlight {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+}
