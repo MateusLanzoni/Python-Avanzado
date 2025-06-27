@@ -101,3 +101,10 @@ INFO 2025-06-27 14:45:00,604 models 11996 7640 Bitácora de consulta registrada p
 INFO 2025-06-27 14:45:53,025 models 11996 7640 Cirugía programada: Ligamento Cruzado para Kiara Medina Granda
 INFO 2025-06-27 14:49:50,460 models 17772 17376 Medicamento creado: Ivermectina
 INFO 2025-06-27 14:50:58,176 views 17772 17376 Exportación CSV de propietarios realizada
+WARNING 2025-06-27 17:21:05,422 log 30940 25876 Not Found: /favicon.ico
+WARNING 2025-06-27 17:21:05,423 basehttp 30940 25876 "GET /favicon.ico HTTP/1.1" 404 11456
+INFO 2025-06-27 17:23:02,056 models 30940 25876 Cirugía actualizada: Ligamento Cruzado para Liz Maria
+WARNING 2025-06-27 17:45:23,239 log 22092 18852 Not Found: /favicon.ico
+WARNING 2025-06-27 17:45:23,240 basehttp 22092 18852 "GET /favicon.ico HTTP/1.1" 404 11456
+WARNING 2025-06-27 18:09:16,789 log 32668 7560 Not Found: /favicon.ico
+WARNING 2025-06-27 18:09:16,789 basehttp 32668 7560 "GET /favicon.ico HTTP/1.1" 404 11456
