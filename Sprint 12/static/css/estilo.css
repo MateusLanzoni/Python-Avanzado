@@ -1,138 +1,114 @@
-/* Estilos personalizados para la Clínica Veterinaria */
-
-/* Navbar personalizado */
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.5rem;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-/* Cards de información */
-.card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: none;
-    margin-bottom: 1rem;
-}
-
-.card-header {
-    font-weight: bold;
-}
-
-/* Botones personalizados */
-.btn-group .btn {
-    border-radius: 0.25rem;
-    margin: 0 2px;
-}
-
-/* Tablas responsivas */
-.table th {
-    font-weight: 600;
-    background-color: #f8f9fa;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 123, 255, 0.05);
-}
-
-/* Alerts personalizados */
-.alert {
-    border-radius: 0.5rem;
-    border: none;
-}
-
-/* Badges para estados */
-.badge {
-    font-size: 0.8em;
-}
-
-/* Formularios */
-.form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-/* Estilos para historia clínica */
-.border-left-success {
-    border-left: 4px solid #28a745 !important;
-}
-
-.border-left-info {
-    border-left: 4px solid #17a2b8 !important;
-}
-
-.border-left-warning {
-    border-left: 4px solid #ffc107 !important;
-}
-
-/* Iconos */
-.fas, .far {
-    margin-right: 0.5rem;
-}
-
-/* Footer spacing */
+html { font-size: 16px; }
 body {
-    padding-bottom: 2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: #2a2a2a;
+    background-color: #f7f9fa;
 }
 
-/* Hover effects */
-.btn:hover {
-    transform: translateY(-1px);
-    transition: all 0.2s ease-in-out;
+:root {
+    --mint:      #48c9b0;  /* botones y enlaces principales */
+    --mint-dark: #38a897;
+    --turq:      #2e86de;  /* acento secundario */
+    --light:     #ffffff;
+    --light-2:   #f1f1f1;
+    --gray:      #6c757d;
+    --radius:    8px;
+    --shadow:    0 2px 6px rgba(0,0,0,.08);
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+header {
+    background: var(--mint);
+    color: var(--light);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+header h1 { font-size: 1.75rem; margin-bottom: .5rem; }
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 600;
+}
+nav a:hover { text-decoration: underline; }
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .btn-group {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .btn-group .btn {
-        margin-bottom: 0.25rem;
-    }
+h2 { margin-bottom: 1rem; color: var(--turq); }
+ul { list-style-type: none; }
+ul li {
+    padding: .5rem .75rem;
+    border-bottom: 1px solid var(--light-2);
 }
+ul li:nth-child(even) { background: var(--light-2); }
 
-/* Home page styling */
-.hero-section {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    color: white;
-    padding: 4rem 0;
-    margin-bottom: 3rem;
+a.btn,
+button {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--light);
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s;
 }
+a.btn:hover,
+button:hover { background: var(--mint-dark); }
 
-.feature-box {
-    text-align: center;
-    padding: 2rem 1rem;
-    border-radius: 0.5rem;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 100%;
+form {
+    margin-top: 1rem;
 }
-
-.feature-box i {
-    font-size: 3rem;
-    color: #007bff;
-    margin-bottom: 1rem;
+form p { margin-bottom: .75rem; }
+form label { display: block; margin-bottom: .25rem; font-weight: 600; }
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: .45rem .55rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 1rem;
 }
-
-/* Loading states */
-.loading {
-    opacity: 0.6;
-    pointer-events: none;
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--turq);
+    box-shadow: 0 0 0 2px rgba(46,134,222,.2);
 }
+button { margin-top: .5rem; }
 
-/* Success/Error states */
-.success-highlight {
-    background-color: #d4edda !important;
-    border-color: #c3e6cb !important;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
 }
+th, td {
+    padding: .6rem;
+    text-align: left;
+    border-bottom: 1px solid var(--light-2);
+}
+th { background: var(--turq); color: var(--light); }
 
-.error-highlight {
-    background-color: #f8d7da !important;
-    border-color: #f5c6cb !important;
+@media (max-width: 600px) {
+    header h1 { font-size: 1.4rem; }
+    nav a { display: block; margin: .3rem 0; }
+    main { margin: 1rem 0.5rem; }
 }
