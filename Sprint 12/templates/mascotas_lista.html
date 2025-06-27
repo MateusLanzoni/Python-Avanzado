@@ -1,18 +1,66 @@
 {% extends "base.html" %}
 
+{% block title %}Mascotas{% endblock %}
+
 {% block content %}
-<h2>Mascotas</h2>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-paw"></i> Mascotas</h2>
+        <a href="{% url 'mascota_crear' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nueva Mascota
+        </a>
+    </div>
 
-<a href="{% url 'mascota_crear' %}">+ Nueva mascota</a>
-
-<ul>
-  {% for m in mascotas %}
-    <li>
-      {{ m.nombre }} ({{ m.especie }}, {{ m.edad }} años) —
-      Dueño: {{ m.propietario.nombre }}
-    </li>
-  {% empty %}
-    <li>No hay mascotas registradas.</li>
-  {% endfor %}
-</ul>
+    {% if mascotas %}
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Especie</th>
+                                <th>Edad</th>
+                                <th>Propietario</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for m in mascotas %}
+                            <tr>
+                                <td><strong>{{ m.nombre }}</strong></td>
+                                <td>{{ m.especie }}</td>
+                                <td>{{ m.edad }} años</td>
+                                <td>{{ m.propietario.nombre }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'historia_clinica' m.id %}" 
+                                           class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-file-medical"></i>
+                                        </a>
+                                        <a href="{% url 'mascota_editar' m.pk %}" 
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'mascota_eliminar' m.pk %}" 
+                                           class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            No hay mascotas registradas. 
+            <a href="{% url 'mascota_crear' %}">Crear la primera</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

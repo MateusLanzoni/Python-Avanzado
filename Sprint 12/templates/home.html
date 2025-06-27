@@ -1,5 +1,110 @@
 {% extends "base.html" %}
+
+{% block title %}Inicio - Clínica Veterinaria{% endblock %}
+
 {% block content %}
-<h2>Bienvenido a la Clínica Veterinaria</h2>
-<p>Cuidamos a tus mascotas con amor y profesionalismo.</p>
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 mb-3">
+            <i class="fas fa-heartbeat"></i> Clínica Veterinaria
+        </h1>
+        <p class="lead">Cuidamos a tus mascotas con amor y profesionalismo</p>
+        <p class="mb-4">Sistema integral de gestión veterinaria para el cuidado completo de tu mascota</p>
+        <a href="{% url 'mascotas_lista' %}" class="btn btn-light btn-lg me-3">
+            <i class="fas fa-paw"></i> Ver Mascotas
+        </a>
+        <a href="{% url 'citas_lista' %}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-calendar-alt"></i> Agendar Cita
+        </a>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <i class="fas fa-users"></i>
+                <h4>Gestión de Clientes</h4>
+                <p>Administra información de propietarios y sus mascotas de manera eficiente y organizada.</p>
+                <a href="{% url 'propietarios_lista' %}" class="btn btn-primary">Ver Propietarios</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <i class="fas fa-pills"></i>
+                <h4>Control de Medicamentos</h4>
+                <p>Gestiona el inventario de medicamentos con control de vencimiento y alertas de stock.</p>
+                <a href="{% url 'medicamentos_lista' %}" class="btn btn-primary">Ver Medicamentos</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <i class="fas fa-procedures"></i>
+                <h4>Cirugías Programadas</h4>
+                <p>Programa y da seguimiento a cirugías veterinarias con control de estados.</p>
+                <a href="{% url 'cirugias_lista' %}" class="btn btn-primary">Ver Cirugías</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <i class="fas fa-user-md"></i>
+                <h4>Equipo Veterinario</h4>
+                <p>Gestiona la información de veterinarios y sus especialidades.</p>
+                <a href="{% url 'veterinarios_lista' %}" class="btn btn-primary">Ver Veterinarios</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <i class="fas fa-clipboard-list"></i>
+                <h4>Consultas Médicas</h4>
+                <p>Registra bitácoras detalladas de consultas, diagnósticos y tratamientos.</p>
+                <a href="{% url 'bitacoras_lista' %}" class="btn btn-primary">Ver Consultas</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <i class="fas fa-file-medical-alt"></i>
+                <h4>Historia Clínica</h4>
+                <p>Accede al historial médico completo de cada mascota de forma organizada.</p>
+                <a href="{% url 'mascotas_lista' %}" class="btn btn-primary">Ver Mascotas</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container-fluid bg-light py-5 mt-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h3 class="mb-4">Funcionalidades Principales</h3>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 class="text-primary"><i class="fas fa-shield-alt"></i></h2>
+                <h5>Seguro y Confiable</h5>
+                <p>Sistema con validaciones y respaldos automáticos</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 class="text-success"><i class="fas fa-download"></i></h2>
+                <h5>Exportación CSV</h5>
+                <p>Exporta datos para reportes externos</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 class="text-info"><i class="fas fa-mobile-alt"></i></h2>
+                <h5>Diseño Responsivo</h5>
+                <p>Accede desde cualquier dispositivo</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 class="text-warning"><i class="fas fa-clock"></i></h2>
+                <h5>Disponible 24/7</h5>
+                <p>Sistema disponible en todo momento</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

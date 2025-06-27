@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}Historia Clínica - {{ mascota.nombre }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2><i class="fas fa-file-medical-alt"></i> Historia Clínica</h2>
+            <h4 class="text-muted">{{ mascota.nombre }} ({{ mascota.especie }})</h4>
+        </div>
+        <div>
+            <a href="{% url 'bitacora_crear' %}" class="btn btn-primary me-2">
+                <i class="fas fa-plus"></i> Nueva Consulta
+            </a>
+            <a href="{% url 'mascotas_lista' %}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        </div>
+    </div>
+
+    <!-- Información de la Mascota -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="fas fa-paw"></i> Información de la Mascota</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <strong>Nombre:</strong> {{ mascota.nombre }}
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Especie:</strong> {{ mascota.especie }}
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Edad:</strong> {{ mascota.edad }} años
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Propietario:</strong> {{ mascota.propietario.nombre }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consultas/Bitácoras -->
+    {% if bitacoras %}
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5><i class="fas fa-clipboard-list"></i> Historial de Consultas</h5>
+            </div>
+            <div class="card-body">
+                {% for bitacora in bitacoras %}
+                    <div class="card mb-3 border-left-success">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="mb-0">
+                                    <i class="fas fa-calendar-alt"></i> 
+                                    {{ bitacora.fecha|date:"d/m/Y H:i" }}
+                                </h6>
+                                <small class="text-muted">
+                                    {% if bitacora.veterinario %}
+                                        Dr. {{ bitacora.veterinario.nombre }}
+                                    {% else %}
+                                        Veterinario no asignado
+                                    {% endif %}
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                {% if bitacora.peso or bitacora.temperatura %}
+                                <div class="col-md-3">
+                                    <h6>Signos Vitales:</h6>
+                                    {% if bitacora.peso %}<p><strong>Peso:</strong> {{ bitacora.peso }} kg</p>{% endif %}
+                                    {% if bitacora.temperatura %}<p><strong>Temperatura:</strong> {{ bitacora.temperatura }} °C</p>{% endif %}
+                                </div>
+                                {% endif %}
+                                
+                                <div class="col-md-{% if bitacora.peso or bitacora.temperatura %}9{% else %}12{% endif %}">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6>Observaciones:</h6>
+                                            <p>{{ bitacora.observaciones }}</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6>Diagnóstico:</h6>
+                                            <p>{{ bitacora.diagnostico }}</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6>Tratamiento:</h6>
+                                            <p>{{ bitacora.tratamiento }}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    {% if bitacora.medicamentos_recetados.all %}
+                                    <div class="mt-2">
+                                        <h6>Medicamentos Recetados:</h6>
+                                        <ul class="list-unstyled">
+                                            {% for medicamento in bitacora.medicamentos_recetados.all %}
+                                                <li><span class="badge bg-info">{{ medicamento.nombre }}</span></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Cirugías -->
+    {% if cirugias %}
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5><i class="fas fa-procedures"></i> Historial de Cirugías</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Tipo de Cirugía</th>
+                                <th>Veterinario</th>
+                                <th>Estado</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cirugia in cirugias %}
+                            <tr>
+                                <td>{{ cirugia.fecha|date:"d/m/Y H:i" }}</td>
+                                <td><strong>{{ cirugia.tipo_cirugia }}</strong></td>
+                                <td>Dr. {{ cirugia.veterinario.nombre }}</td>
+                                <td>
+                                    {% if cirugia.estado == 'programada' %}
+                                        <span class="badge bg-primary">Programada</span>
+                                    {% elif cirugia.estado == 'en_proceso' %}
+                                        <span class="badge bg-warning">En Proceso</span>
+                                    {% elif cirugia.estado == 'completada' %}
+                                        <span class="badge bg-success">Completada</span>
+                                    {% elif cirugia.estado == 'cancelada' %}
+                                        <span class="badge bg-danger">Cancelada</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ cirugia.descripcion|truncatechars:100 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if not bitacoras and not cirugias %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            No hay registros médicos para esta mascota aún.
+            <a href="{% url 'bitacora_crear' %}">Crear la primera consulta</a>
+        </div>
+    {% endif %}
+</div>
+
+<style>
+.border-left-success {
+    border-left: 4px solid #28a745 !important;
+}
+</style>
+{% endblock %}

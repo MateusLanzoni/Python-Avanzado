@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Medicamentos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-pills"></i> Gestión de Medicamentos</h2>
+        <a href="{% url 'medicamento_crear' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nuevo Medicamento
+        </a>
+    </div>
+
+    {% if medicamentos %}
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Stock</th>
+                                <th>Fecha Vencimiento</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for medicamento in medicamentos %}
+                            <tr>
+                                <td><strong>{{ medicamento.nombre }}</strong></td>
+                                <td>{{ medicamento.descripcion|truncatechars:50 }}</td>
+                                <td>
+                                    <span class="badge {% if medicamento.cantidad_disponible < 10 %}bg-danger{% elif medicamento.cantidad_disponible < 50 %}bg-warning{% else %}bg-success{% endif %}">
+                                        {{ medicamento.cantidad_disponible }} unidades
+                                    </span>
+                                </td>
+                                <td>{{ medicamento.fecha_vencimiento|date:"d/m/Y" }}</td>
+                                <td>
+                                    {% if medicamento.estado_vencimiento == 'vencido' %}
+                                        <span class="badge bg-danger">Vencido</span>
+                                    {% elif medicamento.estado_vencimiento == 'por_vencer' %}
+                                        <span class="badge bg-warning">Por vencer</span>
+                                    {% else %}
+                                        <span class="badge bg-success">Vigente</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'medicamento_editar' medicamento.pk %}" 
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'medicamento_eliminar' medicamento.pk %}" 
+                                           class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            No hay medicamentos registrados. 
+            <a href="{% url 'medicamento_crear' %}">Crear el primero</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
