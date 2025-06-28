@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Bitácoras de Consulta{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-clipboard-list"></i> Bitácoras de Consulta</h2>
+        <a href="{% url 'bitacora_crear' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nueva Bitácora
+        </a>
+    </div>
+
+    {% if bitacoras %}
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Mascota</th>
+                                <th>Veterinario</th>
+                                <th>Diagnóstico</th>
+                                <th>Peso/Temp</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for bitacora in bitacoras %}
+                            <tr>
+                                <td>{{ bitacora.fecha|date:"d/m/Y H:i" }}</td>
+                                <td>
+                                    <strong>{{ bitacora.mascota.nombre }}</strong><br>
+                                    <small class="text-muted">{{ bitacora.mascota.especie }}</small>
+                                </td>
+                                <td>
+                                    {% if bitacora.veterinario %}
+                                        Dr. {{ bitacora.veterinario.nombre }}
+                                    {% else %}
+                                        <span class="text-muted">No asignado</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ bitacora.diagnostico|truncatechars:50 }}</td>
+                                <td>
+                                    {% if bitacora.peso %}{{ bitacora.peso }}kg{% endif %}
+                                    {% if bitacora.peso and bitacora.temperatura %}<br>{% endif %}
+                                    {% if bitacora.temperatura %}{{ bitacora.temperatura }}°C{% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'bitacora_editar' bitacora.pk %}" 
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'historia_clinica' bitacora.mascota.id %}" 
+                                           class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-file-medical"></i>
+                                        </a>
+                                        <a href="{% url 'bitacora_eliminar' bitacora.pk %}" 
+                                           class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            No hay bitácoras de consulta registradas. 
+            <a href="{% url 'bitacora_crear' %}">Crear la primera</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Cirugías{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-procedures"></i> Programación de Cirugías</h2>
+        <a href="{% url 'cirugia_crear' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Programar Cirugía
+        </a>
+    </div>
+
+    {% if cirugias %}
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Fecha/Hora</th>
+                                <th>Tipo de Cirugía</th>
+                                <th>Mascota</th>
+                                <th>Veterinario</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cirugia in cirugias %}
+                            <tr>
+                                <td>{{ cirugia.fecha|date:"d/m/Y H:i" }}</td>
+                                <td><strong>{{ cirugia.tipo_cirugia }}</strong></td>
+                                <td>{{ cirugia.mascota.nombre }} ({{ cirugia.mascota.especie }})</td>
+                                <td>Dr. {{ cirugia.veterinario.nombre }}</td>
+                                <td>
+                                    {% if cirugia.estado == 'programada' %}
+                                        <span class="badge bg-primary">Programada</span>
+                                    {% elif cirugia.estado == 'en_proceso' %}
+                                        <span class="badge bg-warning">En Proceso</span>
+                                    {% elif cirugia.estado == 'completada' %}
+                                        <span class="badge bg-success">Completada</span>
+                                    {% elif cirugia.estado == 'cancelada' %}
+                                        <span class="badge bg-danger">Cancelada</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'cirugia_editar' cirugia.pk %}" 
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'cirugia_eliminar' cirugia.pk %}" 
+                                           class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            No hay cirugías programadas. 
+            <a href="{% url 'cirugia_crear' %}">Programar la primera</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
