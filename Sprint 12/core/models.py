@@ -6,7 +6,7 @@ class Propietario(models.Model):
     telefono = models.CharField(max_length=20)
     email    = models.EmailField()
 
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 
@@ -22,7 +22,7 @@ class Mascota(models.Model):
     edad        = models.PositiveIntegerField()
     propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 
@@ -32,5 +32,5 @@ class Cita(models.Model):
     motivo      = models.CharField(max_length=200)
     mascota     = models.ForeignKey(Mascota, on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.fecha} {self.hora} — {self.mascota.nombre}"

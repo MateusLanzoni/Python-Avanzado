@@ -2,4 +2,25 @@
 {% block content %}
 <h2>Bienvenido a la Clínica Veterinaria</h2>
 <p>Cuidamos a tus mascotas con amor y profesionalismo.</p>
+
+{% if user.is_authenticated %}
+    <div class="alert alert-success">
+        <h3>¡Hola, {{ user.username }}!</h3>
+        <p>Tienes acceso completo a todas las funciones del sistema:</p>
+        <ul>
+            <li><a href="{% url 'propietarios_lista' %}">Gestionar Propietarios</a></li>
+            <li><a href="{% url 'mascotas_lista' %}">Gestionar Mascotas</a></li>
+            <li><a href="{% url 'citas_lista' %}">Gestionar Citas</a></li>
+        </ul>
+    </div>
+{% else %}
+    <div class="alert alert-info">
+        <h3>Sistema de Autenticación</h3>
+        <p>Para acceder a todas las funciones del sistema, necesitas iniciar sesión.</p>
+        <p>
+            <a href="{% url 'login' %}" class="btn">Iniciar Sesión</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary">Registrarse</a>
+        </p>
+    </div>
+{% endif %}
 {% endblock %}

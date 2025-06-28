@@ -4,10 +4,14 @@ from .models import Propietario, Mascota, Cita
 from django.forms import DateInput
 
 class PropietarioForm(forms.ModelForm):
-    class Meta: model, fields = Propietario, "_all_"
+    class Meta: 
+        model = Propietario
+        fields = "__all__"
 
 class MascotaForm(forms.ModelForm):
-    class Meta: model, fields = Mascota, "_all_"
+    class Meta: 
+        model = Mascota
+        fields = "__all__"
 
 class CitaForm(forms.ModelForm):
     fecha = forms.DateField(
@@ -16,4 +20,4 @@ class CitaForm(forms.ModelForm):
     )
     class Meta:
         model = Cita
-        fields = "_all_"
+        fields = "__all__"

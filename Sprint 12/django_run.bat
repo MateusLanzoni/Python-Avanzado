@@ -1,0 +1,3 @@
+@echo off
+echo Ejecutando comando Django...
+py -c "exec(open('manage.py').read())" %*

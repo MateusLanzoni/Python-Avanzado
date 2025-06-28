@@ -1,15 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Propietarios</h2>
+<div class="container">
+    <h2>Gestión de Propietarios</h2>
 
-<a href="{% url 'propietario_crear' %}">+ Nuevo propietario</a>
+    <div class="actions">
+        <a href="{% url 'propietario_crear' %}" class="btn btn-primary">+ Nuevo Propietario</a>
+    </div>
 
-<ul>
-  {% for p in propietarios %}
-    <li>{{ p.nombre }} — {{ p.telefono }} — {{ p.email }}</li>
-  {% empty %}
-    <li>No hay propietarios registrados.</li>
-  {% endfor %}
-</ul>
+    {% if propietarios %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for propietario in propietarios %}
+                <tr>
+                    <td>{{ propietario.nombre }}</td>
+                    <td>{{ propietario.telefono }}</td>
+                    <td>{{ propietario.email }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">
+            <p>No hay propietarios registrados.</p>
+            <p><a href="{% url 'propietario_crear' %}" class="btn">Crear el primer propietario</a></p>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
