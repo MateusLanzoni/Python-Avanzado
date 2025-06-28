@@ -1,52 +1,370 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Registrarse - Clínica Veterinaria{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="form-container">
-        <h2>Registrarse</h2>
-        
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="form-container animate-on-scroll" data-animation="fadeInUp">
+        <div class="text-center mb-4">
+            <div class="auth-icon mb-3">
+                <i class="fas fa-user-plus text-success"></i>
+            </div>
+            <h2 class="fw-bold">Crear Cuenta</h2>
+            <p class="text-muted">Únete a nuestro sistema de gestión veterinaria</p>
+        </div>
+
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
+                <div class="alert alert-{{ message.tags }} alert-modern animate__animated animate__shakeX">
+                    <i class="fas fa-{% if message.tags == 'error' %}exclamation-triangle{% else %}info-circle{% endif %} me-2"></i>
                     {{ message }}
                 </div>
             {% endfor %}
         {% endif %}
-        
-        <form method="post">
+
+        <form method="post" class="auth-form">
             {% csrf_token %}
             
-            <div class="form-group">
-                <label for="id_username">Usuario:</label>
+            <div class="form-floating mb-3">
                 {{ form.username }}
+                <label for="id_username">
+                    <i class="fas fa-user me-2"></i>Nombre de Usuario
+                </label>
                 {% if form.username.errors %}
-                    <div class="error">{{ form.username.errors }}</div>
+                    <div class="invalid-feedback d-block">
+                        {{ form.username.errors.0 }}
+                    </div>
                 {% endif %}
+                <small class="form-text text-muted">
+                    Letras, dígitos y @/./+/-/_ únicamente.
+                </small>
             </div>
-            
-            <div class="form-group">
-                <label for="id_password1">Contraseña:</label>
+
+            <div class="form-floating mb-3">
                 {{ form.password1 }}
+                <label for="id_password1">
+                    <i class="fas fa-lock me-2"></i>Contraseña
+                </label>
+                <button type="button" class="password-toggle" onclick="togglePassword('id_password1', 'password-icon-1')">
+                    <i class="fas fa-eye" id="password-icon-1"></i>
+                </button>
                 {% if form.password1.errors %}
-                    <div class="error">{{ form.password1.errors }}</div>
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.password1.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             </div>
-            
-            <div class="form-group">
-                <label for="id_password2">Confirmar Contraseña:</label>
+
+            <div class="form-floating mb-4">
                 {{ form.password2 }}
+                <label for="id_password2">
+                    <i class="fas fa-lock me-2"></i>Confirmar Contraseña
+                </label>
+                <button type="button" class="password-toggle" onclick="togglePassword('id_password2', 'password-icon-2')">
+                    <i class="fas fa-eye" id="password-icon-2"></i>
+                </button>
                 {% if form.password2.errors %}
-                    <div class="error">{{ form.password2.errors }}</div>
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.password2.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             </div>
-            
+
+            <!-- Password Requirements -->
+            <div class="password-requirements mb-4">
+                <h6 class="text-muted mb-2">
+                    <i class="fas fa-shield-alt me-2"></i>Requisitos de contraseña:
+                </h6>
+                <ul class="requirements-list">
+                    <li id="req-length">Al menos 8 caracteres</li>
+                    <li id="req-not-common">No debe ser muy común</li>
+                    <li id="req-not-numeric">No puede ser completamente numérica</li>
+                    <li id="req-not-personal">No debe ser similar a tu información personal</li>
+                </ul>
+            </div>
+
             {% if form.non_field_errors %}
-                <div class="error">{{ form.non_field_errors }}</div>
+                <div class="alert alert-danger alert-modern">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    {% for error in form.non_field_errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
             {% endif %}
-            
-            <button type="submit" class="btn btn-primary">Registrarse</button>
-            <a href="{% url 'login' %}" class="btn btn-secondary">¿Ya tienes cuenta? Inicia sesión</a>
+
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">
+                    Acepto los <a href="#" class="text-primary">términos y condiciones</a> 
+                    y la <a href="#" class="text-primary">política de privacidad</a>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg w-100 btn-modern mb-3">
+                <i class="fas fa-user-plus me-2"></i>
+                <span class="btn-text">Crear Cuenta</span>
+            </button>
+
+            <div class="text-center">
+                <p class="text-muted">¿Ya tienes una cuenta? 
+                    <a href="{% url 'login' %}" class="text-primary text-decoration-none fw-bold">
+                        Inicia sesión aquí
+                    </a>
+                </p>
+            </div>
         </form>
+
+        <!-- Registration Benefits -->
+        <div class="registration-benefits mt-4">
+            <h6 class="text-center text-muted mb-3">
+                <i class="fas fa-star me-2"></i>Beneficios de registrarse
+            </h6>
+            <div class="row text-center">
+                <div class="col-4">
+                    <i class="fas fa-paw text-primary mb-2"></i>
+                    <small class="d-block text-muted">Gestión de mascotas</small>
+                </div>
+                <div class="col-4">
+                    <i class="fas fa-calendar text-success mb-2"></i>
+                    <small class="d-block text-muted">Programar citas</small>
+                </div>
+                <div class="col-4">
+                    <i class="fas fa-history text-info mb-2"></i>
+                    <small class="d-block text-muted">Historial médico</small>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Custom styles for this page -->
+<style>
+.auth-icon i {
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.form-floating {
+    position: relative;
+}
+
+.form-floating .form-control {
+    height: 3.5rem;
+    padding: 1rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.form-floating .form-control:focus {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-floating label {
+    padding: 1rem 0.75rem;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--success-color);
+}
+
+.password-requirements {
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border-left: 4px solid var(--success-color);
+}
+
+[data-bs-theme="dark"] .password-requirements {
+    background: #3a3a3a;
+}
+
+.requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.requirements-list li {
+    padding: 0.25rem 0;
+    color: #6c757d;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.requirements-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.requirements-list li.valid::before {
+    opacity: 1;
+}
+
+.requirements-list li.invalid::before {
+    content: '\f00d';
+    color: #dc3545;
+    opacity: 1;
+}
+
+.registration-benefits {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-bs-theme="dark"] .registration-benefits {
+    background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+    border-color: #404040;
+}
+
+.registration-benefits i {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .registration-benefits {
+        margin-top: 2rem;
+    }
+}
+</style>
+
+<!-- Custom JavaScript for this page -->
+<script>
+function togglePassword(fieldId, iconId) {
+    const passwordField = document.getElementById(fieldId);
+    const passwordIcon = document.getElementById(iconId);
+    
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        passwordIcon.classList.remove('fa-eye');
+        passwordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordField.type = 'password';
+        passwordIcon.classList.remove('fa-eye-slash');
+        passwordIcon.classList.add('fa-eye');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Password validation
+    const password1 = document.getElementById('id_password1');
+    const password2 = document.getElementById('id_password2');
+    const username = document.getElementById('id_username');
+    
+    function validatePassword() {
+        const value = password1.value;
+        const usernameValue = username.value.toLowerCase();
+        
+        // Length check
+        const lengthReq = document.getElementById('req-length');
+        if (value.length >= 8) {
+            lengthReq.classList.add('valid');
+            lengthReq.classList.remove('invalid');
+        } else {
+            lengthReq.classList.add('invalid');
+            lengthReq.classList.remove('valid');
+        }
+        
+        // Not purely numeric
+        const numericReq = document.getElementById('req-not-numeric');
+        if (!/^\d+$/.test(value)) {
+            numericReq.classList.add('valid');
+            numericReq.classList.remove('invalid');
+        } else {
+            numericReq.classList.add('invalid');
+            numericReq.classList.remove('valid');
+        }
+        
+        // Not similar to username
+        const personalReq = document.getElementById('req-not-personal');
+        if (value.toLowerCase() !== usernameValue && !value.toLowerCase().includes(usernameValue)) {
+            personalReq.classList.add('valid');
+            personalReq.classList.remove('invalid');
+        } else if (usernameValue.length > 0) {
+            personalReq.classList.add('invalid');
+            personalReq.classList.remove('valid');
+        }
+        
+        // Common passwords (basic check)
+        const commonReq = document.getElementById('req-not-common');
+        const commonPasswords = ['password', '123456', 'password123', 'admin', 'qwerty'];
+        if (!commonPasswords.includes(value.toLowerCase())) {
+            commonReq.classList.add('valid');
+            commonReq.classList.remove('invalid');
+        } else {
+            commonReq.classList.add('invalid');
+            commonReq.classList.remove('valid');
+        }
+    }
+    
+    if (password1) {
+        password1.addEventListener('input', validatePassword);
+    }
+    
+    if (username) {
+        username.addEventListener('input', validatePassword);
+    }
+    
+    // Password confirmation
+    function validatePasswordConfirmation() {
+        if (password2.value && password1.value !== password2.value) {
+            password2.setCustomValidity('Las contraseñas no coinciden');
+            password2.classList.add('is-invalid');
+        } else {
+            password2.setCustomValidity('');
+            password2.classList.remove('is-invalid');
+        }
+    }
+    
+    if (password2) {
+        password2.addEventListener('input', validatePasswordConfirmation);
+        password1.addEventListener('input', validatePasswordConfirmation);
+    }
+    
+    // Form submission animation
+    const form = document.querySelector('.auth-form');
+    form.addEventListener('submit', function() {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const btnText = submitBtn.querySelector('.btn-text');
+        btnText.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Creando cuenta...';
+        submitBtn.disabled = true;
+    });
+});
+</script>
+{% endblock %}
 </div>
 {% endblock %}

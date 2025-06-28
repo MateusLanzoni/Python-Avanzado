@@ -113,13 +113,13 @@ python manage.py runserver
 
 ```
 Sprint 12/
-├── core/                   # Aplicación principal
-│   ├── models.py          # Modelos de datos
-│   ├── views.py           # Vistas y lógica de negocio
-│   ├── forms.py           # Formularios Django
-│   ├── urls.py            # Rutas de la aplicación
-│   └── admin.py           # Configuración del admin
-├── templates/             # Plantillas HTML
+├── core/                 # Aplicación principal
+│   ├── models.py         # Modelos de datos
+│   ├── views.py          # Vistas y lógica de negocio
+│   ├── forms.py          # Formularios Django
+│   ├── urls.py           # Rutas de la aplicación
+│   └── admin.py          # Configuración del admin
+├── templates/            # Plantillas HTML
 │   ├── base.html         # Plantilla base
 │   ├── home.html         # Página principal
 │   ├── registration/     # Templates de autenticación
